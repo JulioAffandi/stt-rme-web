@@ -1,0 +1,2 @@
+# Placeholder to keep models_store/whisper folder in git repo.
+# Place fine-tuned Whisper model directory here (config.json, model.safetensors, tokenizer, etc.)

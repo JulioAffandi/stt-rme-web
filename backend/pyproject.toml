@@ -1,0 +1,27 @@
+[project]
+name = "rme-stt-nlp-backend"
+version = "0.1.0"
+description = "Backend FastAPI demo RME berbasis Speech-to-Text & NLP"
+requires-python = ">=3.10"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["app", "scripts", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["B008"]  # Depends() di default arg — pola FastAPI yang wajar
+
+[tool.ruff.lint.per-file-ignores]
+# File migrasi Alembic digenerate otomatis — jangan dipaksa format.
+"alembic/versions/*" = ["E501", "I001"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+extend-exclude = "alembic/versions"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

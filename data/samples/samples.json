@@ -1,0 +1,26 @@
+[
+  {
+    "id": "sample-dbd",
+    "title": "Skenario Sidang: Demam Berdarah Dengue (DBD)",
+    "description": "Keluhan pusing, menggigil, muntah. Negasi: tidak ada sesak napas. Temuan fisik: mata merah. Terapi: paracetamol.",
+    "filename": "SAMPLE_DBD.wav",
+    "duration_sec": 12.0,
+    "transcript": "Pasien mengeluh pusing, badan menggigil, dan muntah sejak dua hari. Tidak ada sesak napas. Pada pemeriksaan mata tampak merah. Kesan demam berdarah. Diberikan paracetamol, dan dianjurkan banyak minum air putih."
+  },
+  {
+    "id": "sample-gastritis",
+    "title": "Skenario 2: Gastritis Akut",
+    "description": "Keluhan nyeri ulu hati dan mual. Negasi: tidak ada muntah darah. Temuan fisik: perut kembung. Terapi: antasida dan omeprazol.",
+    "filename": "SAMPLE_GASTRITIS.wav",
+    "duration_sec": 8.0,
+    "transcript": "Pasien mengeluh nyeri ulu hati dan mual sejak kemarin. Tidak ada muntah darah. Perut kembung dan nyeri tekan epigastrium. Kesan gastritis akut. Diberikan antasida dan omeprazol, dianjurkan makan teratur."
+  },
+  {
+    "id": "sample-clinical-dataset",
+    "title": "Skenario 3: Percakapan Klinis (Dataset ACI-BENCH)",
+    "description": "Audio rekaman percakapan klinis asli dari dataset audio_recordings (GAS0001).",
+    "filename": "GAS0001.mp3",
+    "duration_sec": 14.5,
+    "transcript": "D: What brings you in today? P: I've just been feeling like very nauseated for, it feels like all the time right now. D: When did this start? P: It's been over a week..."
+  }
+]

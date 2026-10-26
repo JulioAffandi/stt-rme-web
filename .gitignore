@@ -1,0 +1,41 @@
+# Environment (berisi secret — JANGAN commit)
+.env
+.env.local
+.env.*.local
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+dist/
+*.tsbuildinfo
+npm-debug.log*
+
+# Database & runtime uploads
+*.db
+*.sqlite3
+data/audio/*
+!data/audio/.gitkeep
+
+# Model weights (simpan di luar git atau unduh terpisah)
+backend/models_store/*
+!backend/models_store/.gitkeep
+!backend/models_store/whisper/
+backend/models_store/whisper/*
+!backend/models_store/whisper/.gitkeep
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

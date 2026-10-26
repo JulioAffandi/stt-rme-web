@@ -1,0 +1,22 @@
+# Docker Compose Override untuk mode GPU (NVIDIA Container Toolkit)
+# Jalankan dengan:
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d --build
+#
+# Atau salin file ini menjadi `docker-compose.override.yml` agar otomatis dipakai oleh `docker compose up`.
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.gpu
+    environment:
+      WHISPER_DEVICE: cuda
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
