@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+from datetime import date
+import uuid
+
 from app.models.encounter import Encounter
 from app.models.patient import Patient
 from app.models.user import User
@@ -10,8 +13,9 @@ from app.nlp.stt_whisper import WhisperSttEngine
 
 
 def _setup_test_encounter(db) -> tuple[User, Encounter]:
+    uid = uuid.uuid4().hex[:8]
     doctor = User(
-        email="dokter.stt@uji.id",
+        email=f"dokter.stt.{uid}@uji.id",
         password_hash="test",
         full_name="dr. Uji STT",
         role="doctor",
@@ -20,8 +24,9 @@ def _setup_test_encounter(db) -> tuple[User, Encounter]:
     db.flush()
 
     patient = Patient(
-        mrn="RM-20261026-9999",
+        medical_record_no=f"RM-{uid}",
         full_name="Pasien Uji Dikte",
+        birth_date=date(1990, 1, 1),
         gender="M",
     )
     db.add(patient)

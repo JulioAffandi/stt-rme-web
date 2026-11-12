@@ -1,0 +1,23 @@
+{
+  "total_cases": 272,
+  "total_sentences": 2397,
+  "soap_distribution": {
+    "S": 1074,
+    "O": 348,
+    "A": 291,
+    "P": 684
+  },
+  "entity_distribution": {
+    "GEJALA": 3216,
+    "TANDA": 592,
+    "DIAGNOSIS": 832,
+    "PENUNJANG": 452,
+    "TINDAKAN": 548,
+    "OBAT": 397
+  },
+  "assertion_distribution": {
+    "PRESENT": 3615,
+    "ABSENT": 1911,
+    "POSSIBLE": 511
+  }
+}

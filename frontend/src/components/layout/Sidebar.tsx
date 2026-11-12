@@ -94,7 +94,7 @@ export function Sidebar({
       <aside
         className={cn(
           "fixed inset-y-0 left-0 z-40 flex w-64 flex-col bg-emerald-900 text-white transition-transform duration-200",
-          "md:static md:z-auto md:translate-x-0",
+          "md:static md:h-full md:shrink-0 md:z-auto md:translate-x-0",
           open ? "translate-x-0" : "-translate-x-full",
           className,
         )}
