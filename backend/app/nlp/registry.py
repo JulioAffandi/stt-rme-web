@@ -33,8 +33,14 @@ def get_soap_classifier() -> SoapClassifier:
             _SOAP_CLASSIFIER = MockSoapClassifier()
         else:
             # Fase 5: Integrasi model IndoBERT nyata
-            logger.info("Menggunakan MockSoapClassifier (Fase 4)")
-            _SOAP_CLASSIFIER = MockSoapClassifier()
+            try:
+                from app.nlp.real import RealSoapClassifier
+
+                logger.info("Menggunakan RealSoapClassifier (IndoBERT fine-tuned)")
+                _SOAP_CLASSIFIER = RealSoapClassifier()
+            except Exception as e:
+                logger.error("Gagal memuat RealSoapClassifier: %s. Fallback ke mock.", e)
+                _SOAP_CLASSIFIER = MockSoapClassifier()
     return _SOAP_CLASSIFIER
 
 
@@ -47,8 +53,14 @@ def get_ner_engine() -> NerEngine:
             _NER_ENGINE = MockNerEngine()
         else:
             # Fase 5: Integrasi model NER Transformer nyata
-            logger.info("Menggunakan MockNerEngine (Fase 4)")
-            _NER_ENGINE = MockNerEngine()
+            try:
+                from app.nlp.real import RealNerEngine
+
+                logger.info("Menggunakan RealNerEngine (IndoBERT fine-tuned)")
+                _NER_ENGINE = RealNerEngine()
+            except Exception as e:
+                logger.error("Gagal memuat RealNerEngine: %s. Fallback ke mock.", e)
+                _NER_ENGINE = MockNerEngine()
     return _NER_ENGINE
 
 
@@ -60,7 +72,13 @@ def get_assertion_engine() -> AssertionEngine:
         if settings.nlp_engine == "mock":
             _ASSERTION_ENGINE = MockAssertionEngine()
         else:
-            # Fase 5: Integrasi assertion hybrid nyata
-            logger.info("Menggunakan MockAssertionEngine (Fase 4)")
-            _ASSERTION_ENGINE = MockAssertionEngine()
+            # Integrasi assertion Transformer IndoBERT fine-tuned
+            try:
+                from app.nlp.real import RealAssertionEngine
+
+                logger.info("Menggunakan RealAssertionEngine (IndoBERT fine-tuned)")
+                _ASSERTION_ENGINE = RealAssertionEngine()
+            except Exception as e:
+                logger.error("Gagal memuat RealAssertionEngine: %s. Fallback ke mock.", e)
+                _ASSERTION_ENGINE = MockAssertionEngine()
     return _ASSERTION_ENGINE
